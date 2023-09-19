@@ -6,7 +6,7 @@
 
   <p>
     <strong>Icon:</strong>
-    <%= category.icon %>
+    <%= image_tag category.icon if category.icon.attached? %>
   </p>
 
 </div>
