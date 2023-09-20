@@ -1,9 +1,17 @@
-<h1>New category</h1>
-
-<%= render "form", category: @category %>
-
-<br>
-
-<div>
-  <%= link_to "Back to categories", categories_path %>
+<% if @category.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+    <ul>
+    <% @category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="form-class">
+<%= form_with(model: @category, url: categories_path, method: :post, multipart: true) do |form| %>
+    <%= form.text_field :name, placeholder: "Enter your name" %>
+    <%= form.file_field :icon, id: 'icon_upload' %>
+    <%= form.submit "Create Category" %>
+<% end %>
 </div>
