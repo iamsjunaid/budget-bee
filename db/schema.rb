@@ -33,8 +33,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_132626) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "icon"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "purchase_categories", force: :cascade do |t|
@@ -49,8 +51,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_132626) do
   create_table "purchases", force: :cascade do |t|
     t.string "name"
     t.decimal "amount"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,12 +66,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_132626) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories", "users"
   add_foreign_key "purchase_categories", "categories"
   add_foreign_key "purchase_categories", "purchases"
+  add_foreign_key "purchases", "users"
 end
