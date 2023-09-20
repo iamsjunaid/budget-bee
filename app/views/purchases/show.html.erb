@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @purchase %>
-
-<div>
-  <%= link_to "Edit this purchase", edit_purchase_path(@purchase) %> |
-  <%= link_to "Back to purchases", purchases_path %>
-
-  <%= button_to "Destroy this purchase", @purchase, method: :delete %>
+<div class="transaction-container">
+  <div class="transaction-heading">
+    <p><%= @purchase.name %></p>
+    <p><strong>Amount:</strong> <%= @purchase.amount %></p>
+  </div>
+  <div class="transaction-details">
+  <h2>Categories:</h2>
+  <ul>
+    <% @purchase.categories.each do |category| %>
+      <li><%= category.name %></li>
+    <% end %>
+  </ul>
+    <p><strong>Created At:</strong> <%= @purchase.created_at.strftime('%B %d, %Y %I:%M %p') %></p>
+  </div>
 </div>
