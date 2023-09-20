@@ -1,9 +1,21 @@
-<h1>New purchase</h1>
+<div class="form-class">
+  <%= form_with(model: [@category, @purchase], url: category_purchases_path(@category), method: :post, id: 'purchase-form') do |form| %>
 
-<%= render "form", purchase: @purchase %>
+ 
+  <%= form.text_field :name, class: 'form-control', placeholder: 'Enter Name for Transaction' %>
+  <%= form.text_field :amount, class: 'form-control', placeholder: 'Enter Amount for Transaction' %>
+  <%= form.hidden_field :primary_category_id, value: @category.id %>
+    <% @categories.each do |category| %>
+      <% next if category == @category %>
 
-<br>
+        <%= check_box_tag 'additional_category_ids[]', category.id, false, id: "additional_category_ids_#{category.id}", class: 'form-checkbox' %>
+        <%= label_tag "additional_category_ids_#{category.id}", category.name, class: 'checkbox-label' %>
 
-<div>
-  <%= link_to "Back to purchases", purchases_path %>
+    <% end %>
+
+
+  <%= form.submit 'Create Purchase', class: 'btn btn-primary' %>
+  <% end %>
+  <%= link_to "Purchases", category_purchases_path, class: "new-category-button" %>
 </div>
+
