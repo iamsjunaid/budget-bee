@@ -8,9 +8,9 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
+      handle_uploaded_icon_file if category_params[:icon].present?
       redirect_to categories_path, notice: 'Category was successfully created.'
     else
-      flash.now[:alert] = @group.errors.full_messages.first if @group.errors.any?
       render :new
     end
   end
@@ -37,5 +37,14 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :icon)
+  end
+
+  def handle_uploaded_icon_file
+    uploaded_file = category_params[:icon]
+    file_path = Rails.root.join('public', 'uploads', uploaded_file.original_filename)
+
+    File.binwrite(file_path, uploaded_file.read)
+
+    @category.update(icon: File.join('/uploads', uploaded_file.original_filename))
   end
 end
