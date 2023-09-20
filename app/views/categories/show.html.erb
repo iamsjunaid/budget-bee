@@ -1,10 +1,19 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @category %>
-
 <div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
+<div class="category-header">
+  <p><%= @category.name %></p>
+  <p>$ <%= @category.purchases.sum(:amount) %></p>
+</div>
+<div class="purchases-container">
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
+  <% @category.purchases.each do |purchase| %>
+    <div class="purchase-item">
+      <%= link_to purchase.name, category_purchase_path(@category, purchase) %>
+      $ <%= purchase.amount %>
+    </div>
+  <% end %>
+</div>
+<div class="links">
+    <%= link_to "Add a New Purchase", new_category_purchase_path(@category) %>
+    <%= link_to "Categories", categories_path , class: "new-category-button" %>
+</div>
 </div>
