@@ -1,12 +1,12 @@
-<div class="navigation">
-  <ul>
-    <li><%= link_to image_tag('backarrow.png', alt: 'Back'), categories_path, class: 'nav-link' %></li>
+<div class="navigation py-6 px-3 blue-nav-white-text">
+  <ul class="flex justify-between items-center blue-btn w-full">
+    <li class="w-10"><%= link_to image_tag('backarrow.png', alt: 'Back'), categories_path, class: 'nav-link' %></li>
     <h2>Create A Category</h2>
     <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %></li>
   </ul>
 </div>
 <% if @category.errors.any? %>
-  <div id="error_explanation">
+  <div id="error_explanation", style="color: red">
     <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
     <ul>
     <% @category.errors.full_messages.each do |message| %>
@@ -16,9 +16,9 @@
   </div>
 <% end %>
 <div class="form-class">
-<%= form_with(model: @category, url: categories_path, method: :post, multipart: true) do |form| %>
-    <%= form.text_field :name, placeholder: "Enter your name" %>
-    <%= form.file_field :icon, id: 'icon_upload' %>
-    <%= form.submit "Create Category" %>
+<%= form_with(model: @category, url: categories_path, method: :post, multipart: true, class: 'mt-10 flex flex-col gap-y-10 form-category') do |form| %>
+      <%= form.text_field :name, placeholder: "Enter Category Name", style: "display: block" %>
+      <%= form.file_field :icon, id: 'icon_upload', style: "display: block" %>
+      <%= form.submit "Create Category", class: 'p-3 px-5 green-btn'%>
 <% end %>
 </div>
