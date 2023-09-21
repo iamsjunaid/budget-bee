@@ -1,21 +1,25 @@
-<div class="form-class">
-  <%= form_with(model: [@category, @purchase], url: category_purchases_path(@category), method: :post, id: 'purchase-form') do |form| %>
+<div class="navigation">
+  <ul class="flex justify-between blue-btn items-center">
+    <li class="w-10"><%= link_to image_tag('backarrow.png', alt: 'Back'), category_path(params[:category_id]), class: 'nav-link' %></li>
+    <li><h2>Add a new Purchase</h2></li>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link' %></li>
+  </ul>
+</div>
 
- 
+<div class="form-class">
+  <%= form_with(model: [@category, @purchase], url: category_purchases_path(@category), method: :post, id: 'purchase-form') do |form| %> 
   <%= form.text_field :name, class: 'form-control', placeholder: 'Enter Name for Transaction' %>
   <%= form.text_field :amount, class: 'form-control', placeholder: 'Enter Amount for Transaction' %>
   <%= form.hidden_field :primary_category_id, value: @category.id %>
     <% @categories.each do |category| %>
       <% next if category == @category %>
-
         <%= check_box_tag 'additional_category_ids[]', category.id, false, id: "additional_category_ids_#{category.id}", class: 'form-checkbox' %>
         <%= label_tag "additional_category_ids_#{category.id}", category.name, class: 'checkbox-label' %>
-
     <% end %>
-
-
-  <%= form.submit 'Create Purchase', class: 'btn btn-primary' %>
+  <%= form.submit 'Create Purchase', class: 'green-btn' %>
   <% end %>
-  <%= link_to "Back to purchases", category_purchases_path, class: "new-category-button" %>
+  <div class="back-to-purchase-container">
+    <%= link_to "Back to purchases", category_purchases_path, class: "back-to-purchase" %>
+  </div>
 </div>
 
