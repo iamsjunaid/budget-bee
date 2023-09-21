@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Category Show Page', type: :feature do
   let!(:user) { User.create(name: 'user', email: 'user@example.com', password: 'password') }
 
@@ -14,7 +15,7 @@ RSpec.feature 'Category Show Page', type: :feature do
     PurchaseCategory.create(purchase: purchase1, category: @groceries_category)
     PurchaseCategory.create(purchase: purchase2, category: @groceries_category)
   end
-
+  # rubocop:enable Metrics/BlockLength
   scenario 'displays category details and purchases' do
     visit category_path(@groceries_category)
     expect(page).to have_content('Groceries')
