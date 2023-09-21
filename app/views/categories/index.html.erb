@@ -1,19 +1,20 @@
-<div class="full-page">
+<div class="flex flex-col h-screen justify-between">
+
 <div class="navigation">
-  <ul>
-    <li><%= link_to image_tag('backarrow.png', alt: 'Back'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link' %></li>
+  <ul class="flex justify-between blue-btn items-center">
+    <li class="w-10"><%= link_to image_tag('backarrow.png', alt: 'Back'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link' %></li>
     <h2>Categories</h2>
     <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %></li>
   </ul>
 </div>
 
-<div class="categories-list">
+<div>
   <% @categories.each do |category| %>
     <%= link_to category do %>
-      <div class="category-item">
+      <div class="w-full p-3 rounded flex justify-between card-item">
         <div class="category-left">
           <% if category.icon.present? %>
-            <%= image_tag category.icon, alt: category.name, class: 'category-icon' %>
+          <div class="card-img"><%= image_tag category.icon, alt: category.name, class: 'category-icon' %></div>
           <% end %>
           </div>
           <div class="category-center">
@@ -25,9 +26,11 @@
     <% end %>
   <% end %>
 </div>
-<div class="new-category">
+
+<div class="new-category text-center">
   <div class="new-category-inner">
-    <%= link_to "Add a New Category", new_category_path, class: "new-category-button" %>
+    <%= link_to "Add a New Category", new_category_path, class: "p-2 py-4 m-4 text-lg w-full border-2 green-btn rounded block" %>
   </div>
 </div>
+
 </div>
