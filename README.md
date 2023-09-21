@@ -120,10 +120,10 @@ You can deploy this project using your own deployment service like `Render`.
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Salim Bamahfoodh**
+👤 **Junaid A Syed**
 
-- GitHub: [@salimer](https://github.com/salimer)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/sbamahfoodh)
+- GitHub: [@iamsjunaid](https://github.com/iamsjunaid)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/junaidahmedsyed)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
