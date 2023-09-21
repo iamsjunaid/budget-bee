@@ -32,6 +32,6 @@ RSpec.feature 'PurchaseShows', type: :feature do
 
   scenario 'allows signing out' do
     click_on 'Sign Out'
-    expect(page).to have_content('Log in')
+    expect(page).to have_text('LOGIN')
   end
 end
