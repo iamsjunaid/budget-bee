@@ -1,15 +1,22 @@
-<div>
-  <div class="purchases-container">
-    
+<div class="navigation">
+  <ul class="flex justify-between blue-btn items-center">
+    <li class="w-10"><%= link_to image_tag('backarrow.png', alt: 'Back'), category_path(params[:category_id]), class: 'nav-link' %></li>
+    <h2>Purchases</h2>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %></li>
+  </ul>
+</div>
+
+<div class="purchases-container">
+  <div>    
     <% @purchases.each do |purchase| %>
-      <div class="purchase-item">
+      <div class="purchase-item card-item">
         <%= link_to purchase.name, category_purchase_path(@category, purchase) %>
         $ <%= purchase.amount %>
       </div>
     <% end %>
   </div>
-  <div class="links">
-      <%= link_to "Add a New Purchase", new_category_purchase_path(@category) %>
-      <%= link_to "Categories", categories_path , class: "new-category-button" %>
+  <div class="flex links flex-col text-center">
+      <%= link_to "Add a New Purchase", new_category_purchase_path(@category), class: "green-btn" %>
+      <%= link_to "Categories", categories_path , class: "categories-btn" %>
   </div>
 </div>
