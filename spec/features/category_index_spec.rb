@@ -17,7 +17,7 @@ RSpec.feature 'Category Index Page', type: :feature do
     expect(page).to have_text('Categories')
     expect(page).to have_link('Sign Out')
 
-    expect(page).to have_selector('.category-item', count: 2)
+    expect(page).to have_selector('.new-category', count: 1)
   end
 
   scenario 'allows adding a new category' do
@@ -31,6 +31,6 @@ RSpec.feature 'Category Index Page', type: :feature do
     visit categories_path
     click_link('Sign Out')
     expect(page).to have_current_path(new_user_session_path)
-    expect(page).to have_content('Log in')
+    expect(page).to have_text('LOGIN')
   end
 end
