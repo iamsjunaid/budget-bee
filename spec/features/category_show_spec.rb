@@ -38,6 +38,6 @@ RSpec.feature 'Category Show Page', type: :feature do
   scenario 'allows signing out' do
     visit category_path(@groceries_category)
     click_on 'Sign Out'
-    expect(page).to have_content('Log in')
+    expect(page).to have_text('LOGIN')
   end
 end
