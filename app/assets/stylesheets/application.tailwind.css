@@ -24,6 +24,10 @@ body {
 
 .green-btn {
   background-color: #60b524;
+}
+
+.green-btn:hover {
+  background-color: #60b524;
   color: #fff;
 }
 
@@ -49,4 +53,45 @@ body {
 .blue-btn {
   background-color: #3778c2;
   color: #fff;
+}
+
+.card-item {
+  background-color: #fff;
+  color: #373e48;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  gap: 10px;
+}
+
+.card-img {
+  width: 50px;
+  height: 50px;
+}
+
+.form-category {
+  width: 22%;
+  display: flex;
+  gap: 2em;
+  margin-left: 2em;
+}
+
+#purchase-form , .purchases-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: .5em;
+  margin: 1em auto;
+}
+
+.confirm-purchase {
+  background-color: #60b524;
+}
+
+.back-to-purchase-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.back-to-purchase, .categories-btn {
+  text-decoration: underline;
 }
