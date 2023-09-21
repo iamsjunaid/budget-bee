@@ -58,7 +58,7 @@ body {
 .card-item {
   background-color: #fff;
   color: #373e48;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
   gap: 10px;
 }
 
@@ -74,11 +74,12 @@ body {
   margin-left: 2em;
 }
 
-#purchase-form , .purchases-container {
+#purchase-form,
+.purchases-container {
   display: flex;
   flex-direction: column;
   width: 50%;
-  gap: .5em;
+  gap: 0.5em;
   margin: 1em auto;
 }
 
@@ -92,6 +93,7 @@ body {
   margin-top: 1em;
 }
 
-.back-to-purchase, .categories-btn {
+.back-to-purchase,
+.categories-btn {
   text-decoration: underline;
 }
