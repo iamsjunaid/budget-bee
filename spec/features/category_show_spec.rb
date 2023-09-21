@@ -8,13 +8,13 @@ RSpec.feature 'Category Show Page', type: :feature do
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'password'
     click_button('Log in')
-    @groceries_category = Category.create(name: 'Groceries', icon: '/uploads/icon.png', user: user)
-    purchase1 = Purchase.create(name: 'Milk', amount: 2.99, user: user)
-    purchase2 = Purchase.create(name: 'Bread', amount: 1.99, user: user)
+    @groceries_category = Category.create(name: 'Groceries', icon: '/uploads/icon.png', user:)
+    purchase1 = Purchase.create(name: 'Milk', amount: 2.99, user:)
+    purchase2 = Purchase.create(name: 'Bread', amount: 1.99, user:)
     PurchaseCategory.create(purchase: purchase1, category: @groceries_category)
     PurchaseCategory.create(purchase: purchase2, category: @groceries_category)
   end
-  
+
   scenario 'displays category details and purchases' do
     visit category_path(@groceries_category)
     expect(page).to have_content('Groceries')
@@ -22,19 +22,19 @@ RSpec.feature 'Category Show Page', type: :feature do
     expect(page).to have_content('Milk: $2.99')
     expect(page).to have_content('Bread: $1.99')
   end
-  
+
   scenario 'navigates back to categories index' do
     visit category_path(@groceries_category)
     click_on 'Back'
     expect(page).to have_current_path(categories_path)
   end
-  
+
   scenario 'allows adding a new purchase' do
     visit category_path(@groceries_category)
     click_on 'Add a New Purchase'
     expect(page).to have_current_path(new_category_purchase_path(@groceries_category))
   end
-  
+
   scenario 'allows signing out' do
     visit category_path(@groceries_category)
     click_on 'Sign Out'

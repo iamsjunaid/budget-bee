@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PurchasesController, type: :controller do
   include Devise::Test::ControllerHelpers
-  
+
   let(:user) do
     User.create(name: 'John Doe', email: 'john@example.com', password: 'password123',
                 password_confirmation: 'password123')

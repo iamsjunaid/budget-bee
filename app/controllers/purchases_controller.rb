@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, only: %i[show edit update destroy]
 
   def index
-    @category = Category.find(params[:category_id]) 
+    @category = Category.find(params[:category_id])
     @purchases = current_user.purchases.order(created_at: :desc)
   end
 

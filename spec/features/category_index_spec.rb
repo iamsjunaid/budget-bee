@@ -26,7 +26,7 @@ RSpec.feature 'Category Index Page', type: :feature do
     click_link('Add a New Category')
     expect(page).to have_current_path(new_category_path)
   end
-  
+
   scenario 'allows signing out' do
     visit categories_path
     click_link('Sign Out')
