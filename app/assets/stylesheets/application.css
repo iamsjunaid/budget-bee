@@ -70,10 +70,8 @@ body {
 }
 
 .form-category {
-  width: 22%;
-  display: flex;
+  padding: 1em;
   gap: 2em;
-  margin-left: 2em;
 }
 
 #purchase-form,
@@ -104,7 +102,7 @@ body {
   height: 48px;
 }
 
-.green-btn strong , .new-category-btn a{
+.green-btn strong , .new-category-btn a, .create-category-btn{
   border: 2px solid #fff;
   padding: 5px 4em;
 }
