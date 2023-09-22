@@ -24,6 +24,8 @@ body {
 
 .green-btn {
   background-color: #60b524;
+  color: #fff;
+  border: 2px solid #fff;
 }
 
 .green-btn:hover {
@@ -102,4 +104,7 @@ body {
   height: 48px;
 }
 
-
+.green-btn strong , .new-category-btn a{
+  border: 2px solid #fff;
+  padding: 5px 4em;
+}
