@@ -20,8 +20,10 @@ RSpec.feature 'Category Show Page', type: :feature do
     visit category_path(@groceries_category)
     expect(page).to have_content('Groceries')
     expect(page).to have_content('Total Amount: $4.98')
-    expect(page).to have_content('Milk: $2.99')
-    expect(page).to have_content('Bread: $1.99')
+    expect(page).to have_content('Milk')
+    expect(page).to have_content('$2.99')
+    expect(page).to have_content('Bread')
+    expect(page).to have_content('$1.99')
   end
 
   scenario 'navigates back to categories index' do
@@ -33,7 +35,7 @@ RSpec.feature 'Category Show Page', type: :feature do
   scenario 'allows adding a new purchase' do
     visit category_path(@groceries_category)
     within('.text-center') do
-      click_button 'Add a New Purchase'
+      click_button 'ADD A NEW PURCHASE'
     end
   end
 
