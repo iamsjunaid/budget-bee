@@ -25,7 +25,6 @@ body {
 .green-btn {
   background-color: #60b524;
   color: #fff;
-  border: 2px solid #fff;
 }
 
 .green-btn:hover {
@@ -110,14 +109,6 @@ body {
 .password,
 .form-control {
   height: 48px;
-}
-
-.green-btn strong,
-.new-category-btn a,
-.create-category-btn,
-.create-purchase-btn {
-  border: 2px solid #fff;
-  padding: 5px 4em;
 }
 
 .category-header {
