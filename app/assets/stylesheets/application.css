@@ -77,6 +77,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  padding: 1em;
 }
 
 .category-purchase-container {
@@ -120,10 +121,8 @@ body {
 }
 
 .transaction-link {
-  text-decoration: underline;
-  color: #3778c2;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 
 .forgot-password-link {
@@ -134,4 +133,18 @@ body {
 
 .email-login {
   margin-top: 20px;
+}
+
+.category-purchase {
+  padding: 1em;
+}
+
+.name-amount-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.purchase-name {
+  text-decoration: underline;
+  color: #3778c2;
 }
