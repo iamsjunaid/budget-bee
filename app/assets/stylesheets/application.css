@@ -133,3 +133,13 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.forgot-password-link {
+  margin: 0 auto;
+  text-align: center;
+  color: #babec4;
+}
+
+.email-login {
+  margin-top: 20px;
+}
