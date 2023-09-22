@@ -27,10 +27,14 @@
   <% end %>
 </div>
 
-<div class="new-category text-center">
-  <div class="new-category-inner">
-    <%= link_to "Add a New Category", new_category_path, class: "p-2 py-4 m-4 text-lg w-full border-2 green-btn rounded block" %>
+  <div class="text-center mt-4">
+    <%= link_to new_category_path do %>
+      <div class="w-full green-btn flex">
+        <button class="p-2 py-4 m-4 text-lg w-full border-2 green-btn rounded hover:bg-green-600 focus:outline-none focus:bg-green-600">
+          <strong>Add a New Category</strong>
+        </button>
+      </div>
+    <% end %>
   </div>
-</div>
 
 </div>
