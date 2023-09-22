@@ -109,7 +109,8 @@ body {
 .email,
 .password,
 .form-control,
-#category_name {
+#category_name,
+#category {
   height: 48px;
 }
 
