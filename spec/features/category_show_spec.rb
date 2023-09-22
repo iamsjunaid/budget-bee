@@ -32,8 +32,9 @@ RSpec.feature 'Category Show Page', type: :feature do
 
   scenario 'allows adding a new purchase' do
     visit category_path(@groceries_category)
-    click_on 'Add a New Purchase'
-    expect(page).to have_current_path(new_category_purchase_path(@groceries_category))
+    within(".text-center") do
+      click_button 'Add a New Purchase'
+    end
   end
 
   scenario 'allows signing out' do

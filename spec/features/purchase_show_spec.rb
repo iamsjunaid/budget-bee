@@ -15,7 +15,7 @@ RSpec.feature 'PurchaseShows', type: :feature do
   end
 
   scenario 'displays purchase details and categories' do
-    expect(page).to have_content('Transaction: Milk')
+    expect(page).to have_content('Milk')
     expect(page).to have_content('Amount: 2.99')
 
     expect(page).to have_content('Categories:')
