@@ -12,11 +12,9 @@
     <p><%= @category.name %></p>
     <p>Total Amount: $<%= @category.purchases.sum(:amount) %></p>
   </div>
-  <div class="purchases-container flex">
+  <div class="purchases-container flex flex-col">
     <% @category.purchases.each do |purchase| %>
-        <p class="transaction-link"><%= link_to "#{purchase.name}:", category_purchase_path(@category, purchase) %></p>
-        <p>$<%= purchase.amount %></p>
-      </p>
+      <div class="transaction-link"><%= link_to "#{purchase.name}: $#{purchase.amount}", category_purchase_path(@category, purchase) %></div>
     <% end %>
   </div>
 </div>
