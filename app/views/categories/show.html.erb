@@ -6,20 +6,28 @@
     <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %></li>
   </ul>
 </div>
-<div class="category-header">
-  <p><%= @category.name %></p>
-  <p>Total Amount: $<%= @category.purchases.sum(:amount) %></p>
-</div>
-<div class="purchases-container">
-  <% @category.purchases.each do |purchase| %>
-    <div class="purchase-item">
-      <%= link_to "#{purchase.name}: $#{purchase.amount}", category_purchase_path(@category, purchase) %>
-    </div>
-  <% end %>
-</div>
-<div class="">
-  <div class="form-category">
-    <%= link_to "Add a New Purchase", new_category_purchase_path(@category) , class: 'p-3 px-5 green-btn'%>
+
+<div class="category-purchase-container">
+  <div class="category-header"> 
+    <p><%= @category.name %></p>
+    <p>Total Amount: $<%= @category.purchases.sum(:amount) %></p>
+  </div>
+  <div class="purchases-container flex">
+    <% @category.purchases.each do |purchase| %>
+        <p class="transaction-link"><%= link_to "#{purchase.name}:", category_purchase_path(@category, purchase) %></p>
+        <p>$<%= purchase.amount %></p>
+      </p>
+    <% end %>
   </div>
 </div>
+
+  <div class="text-center mt-4">
+    <%= link_to new_category_purchase_path(@category) do %>
+      <div class="w-full green-btn flex">
+        <button class="p-2 py-4 m-4 text-lg w-full border-2 green-btn rounded hover:bg-green-600 focus:outline-none focus:bg-green-600">
+          <strong>Add a New Purchase</strong>
+        </button>
+      </div>
+    <% end %>
+  </div>
 </div>
