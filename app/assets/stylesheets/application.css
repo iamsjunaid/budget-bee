@@ -107,7 +107,8 @@ body {
 .name,
 .email,
 .password,
-.form-control {
+.form-control,
+#category_name {
   height: 48px;
 }
 
