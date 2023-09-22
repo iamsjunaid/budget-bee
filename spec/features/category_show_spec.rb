@@ -32,7 +32,7 @@ RSpec.feature 'Category Show Page', type: :feature do
 
   scenario 'allows adding a new purchase' do
     visit category_path(@groceries_category)
-    within(".text-center") do
+    within('.text-center') do
       click_button 'Add a New Purchase'
     end
   end
