@@ -14,14 +14,14 @@ RSpec.feature 'Category Index Page', type: :feature do
 
   scenario 'displays the categories' do
     visit categories_path
-    expect(page).to have_text('Categories')
+    expect(page).to have_text('CATEGORIES')
     expect(page).to have_link('Sign Out')
   end
 
   scenario 'allows adding a new category' do
     visit categories_path
-    expect(page).to have_link('Add a New Category')
-    click_link('Add a New Category')
+    expect(page).to have_link('ADD A NEW CATEGORY')
+    click_link('ADD A NEW CATEGORY')
     expect(page).to have_current_path(new_category_path)
   end
 
