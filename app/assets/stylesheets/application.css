@@ -74,7 +74,13 @@ body {
   gap: 2em;
 }
 
-#purchase-form, .category-purchase-container {
+#purchase-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.category-purchase-container {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -96,11 +102,11 @@ body {
   text-decoration: underline;
 }
 
-.name, .email, .password{
+.name, .email, .password, .form-control{
   height: 48px;
 }
 
-.green-btn strong , .new-category-btn a, .create-category-btn{
+.green-btn strong , .new-category-btn a, .create-category-btn, .create-purchase-btn{
   border: 2px solid #fff;
   padding: 5px 4em;
 }
@@ -121,4 +127,6 @@ body {
 .transaction-link {
   text-decoration: underline;
   color: #3778c2;
+  display: flex;
+  flex-direction: column;
 }
