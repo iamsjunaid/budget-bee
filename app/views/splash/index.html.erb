@@ -1,0 +1,20 @@
+<div class="flex flex-col justify-between h-screen items-center">
+<h1 class="text-center p-4 blue-btn w-full" >Budget Bee</h1>
+<p>Track your expenses</p>
+ <% if user_signed_in? %>
+
+  <div class="w-full green-btn flex"> <!-- Set width to full and remove padding and margin -->
+    <button class="p-2 py-4 m-4 text-lg w-full border-2 green-btn rounded hover:bg-green-600 focus:outline-none focus:bg-green-600 new-category-btn">
+      <%= link_to 'ADD A NEW CATEGORY', new_category_path %>
+    </button>
+  </div>
+<% else %>
+  <div class="flex w-full items-center">
+  <a href="/users/sign_in">
+    <button class="blue-btn w-full p-4 border-e-2"><%= link_to 'Login', new_user_session_path %></button>
+  </a href="/users/sign_out">
+    <button class="blue-btn w-full p-4 border-s-2"><%= link_to 'Sign Up', new_user_registration_path %></button>
+  </div>
+<% end %>
+</div>
+

@@ -1,0 +1,21 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'flex flex-col' }) do |f| %>
+<div class="navigation">
+  <ul class="flex justify-between blue-btn items-center p-4">
+    <li class="w-10"><%= link_to image_tag('backarrow.png', alt: 'Back'), root_path, class: 'nav-link' %></li>
+    <h2>LOGIN</h2>
+    <%= f.submit "Log in", class: '' %>
+  </ul>
+</div>
+
+  <div class="field border-t-2 mt-2 email-login">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'w-full border-none email', placeholder: 'Email' %>
+  </div>
+
+  <div class="field border-t-2">
+    <%= f.password_field :password, autocomplete: "current-password", class: 'w-full  border-none password', placeholder: 'Password' %>
+  </div>
+<% end %>
+
+<div class="forgot-password-link">
+  <%= link_to 'Forgot your password?', new_user_password_path %>
+</div>
